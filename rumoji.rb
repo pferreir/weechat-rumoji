@@ -1,7 +1,7 @@
 require "rumoji/emoji"
 
 def render(data, modifier, modifier_data, message)
-  message.sub(/(:[\w-]+:)/) do |full|
+  message.gsub(/(:[\w-]+:)/) do |full|
     sym = Rumoji::Emoji.find(full[1..-2].intern)
     sym ? sym.to_s : full
   end
